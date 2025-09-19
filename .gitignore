@@ -1,0 +1,27 @@
+# Binaries
+/bin/
+/*.exe
+/*.exe~
+/*.dll
+/*.so
+/*.dylib
+
+# Vendor
+/vendor/
+
+# IDE/editor
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+*.out
+
+# Go mod
+go.sum
