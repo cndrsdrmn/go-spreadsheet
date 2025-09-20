@@ -29,9 +29,9 @@ func TestCreateSheet_WithRowsAndBatches(t *testing.T) {
 	assert.Equal(t, 0, sheet.Index)
 	assert.Equal(t, "Sheet1", sheet.Name)
 	assert.NotNil(t, sheet.Rows)
-	assert.Equal(t, rows, *sheet.Rows)
+	assert.Equal(t, rows, sheet.Rows)
 	assert.NotNil(t, sheet.Batches)
-	assert.Equal(t, batches, *sheet.Batches)
+	assert.Equal(t, batches, sheet.Batches)
 }
 
 func TestCreateSheet_WithoutRowsAndBatches(t *testing.T) {

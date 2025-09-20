@@ -33,8 +33,8 @@ func TestReader_Read(t *testing.T) {
 	sheet := ws.Sheets[0]
 	assert.Equal(t, "Sheet 1", sheet.Name)
 	assert.NotNil(t, sheet.Rows)
-	assert.Len(t, *sheet.Rows, 3)
-	assert.Equal(t, "a", (*sheet.Rows)[0].Cells[0])
+	assert.Len(t, sheet.Rows, 3)
+	assert.Equal(t, "a", (sheet.Rows)[0].Cells[0])
 }
 
 func TestReader_BatchStream(t *testing.T) {
@@ -54,7 +54,7 @@ func TestReader_BatchStream(t *testing.T) {
 		sheet := ws.Sheets[0]
 		assert.NotNil(t, sheet.Batches)
 		countBatches++
-		totalRows += len((*sheet.Batches)[0].Rows)
+		totalRows += len((sheet.Batches)[0].Rows)
 	}
 
 	assert.Equal(t, 2, countBatches)
@@ -91,6 +91,6 @@ func TestReader_CustomDelimiter(t *testing.T) {
 	reader := csvpkg.NewReader(csvpkg.Options{Comma: ';', BatchSize: 2}).(*csvpkg.Reader)
 	ws, err := reader.Read(file)
 	assert.NoError(t, err)
-	assert.Equal(t, "a", (*ws.Sheets[0].Rows)[0].Cells[0])
-	assert.Equal(t, "b", (*ws.Sheets[0].Rows)[0].Cells[1])
+	assert.Equal(t, "a", (ws.Sheets[0].Rows)[0].Cells[0])
+	assert.Equal(t, "b", (ws.Sheets[0].Rows)[0].Cells[1])
 }
