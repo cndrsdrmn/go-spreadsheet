@@ -25,3 +25,6 @@ Thumbs.db
 
 # Go mod
 go.sum
+
+# Added by goreleaser init:
+/dist/
