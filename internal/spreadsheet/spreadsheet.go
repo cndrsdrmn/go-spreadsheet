@@ -1,10 +1,10 @@
 package spreadsheet
 
 type Sheet struct {
-	Index   int     `json:"index"`
-	Name    string  `json:"name"`
-	Rows    []Row   `json:"rows,omitempty"`
-	Batches []Batch `json:"batches,omitempty"`
+	Index int    `json:"index"`
+	Name  string `json:"name"`
+	Rows  []Row  `json:"rows,omitempty"`
+	Batch *Batch `json:"batch,omitempty"`
 }
 
 type Batch struct {
@@ -32,12 +32,12 @@ func CreateBatch(start, end int, rows []Row) Batch {
 	}
 }
 
-func CreateSheet(index int, name string, rows []Row, batches []Batch) Sheet {
+func CreateSheet(index int, name string, rows []Row, batch *Batch) Sheet {
 	return Sheet{
-		Index:   index,
-		Name:    name,
-		Rows:    rows,
-		Batches: batches,
+		Index: index,
+		Name:  name,
+		Rows:  rows,
+		Batch: batch,
 	}
 }
 

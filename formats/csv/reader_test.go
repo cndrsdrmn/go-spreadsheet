@@ -52,9 +52,9 @@ func TestReader_BatchStream(t *testing.T) {
 		assert.NoError(t, ws.Err)
 		assert.Len(t, ws.Sheets, 1)
 		sheet := ws.Sheets[0]
-		assert.NotNil(t, sheet.Batches)
+		assert.NotNil(t, sheet.Batch)
 		countBatches++
-		totalRows += len((sheet.Batches)[0].Rows)
+		totalRows += len(sheet.Batch.Rows)
 	}
 
 	assert.Equal(t, 2, countBatches)

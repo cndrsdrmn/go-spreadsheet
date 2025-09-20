@@ -22,23 +22,23 @@ func TestCreateBatch(t *testing.T) {
 
 func TestCreateSheet_WithRowsAndBatches(t *testing.T) {
 	rows := []s.Row{{Sheet: 0, Index: 1, Cells: []string{"A1"}}}
-	batches := []s.Batch{{RowStart: 1, RowEnd: 1, Rows: rows}}
+	batch := &s.Batch{RowStart: 1, RowEnd: 1, Rows: rows}
 
-	sheet := s.CreateSheet(0, "Sheet1", rows, batches)
+	sheet := s.CreateSheet(0, "Sheet1", rows, batch)
 
 	assert.Equal(t, 0, sheet.Index)
 	assert.Equal(t, "Sheet1", sheet.Name)
 	assert.NotNil(t, sheet.Rows)
 	assert.Equal(t, rows, sheet.Rows)
-	assert.NotNil(t, sheet.Batches)
-	assert.Equal(t, batches, sheet.Batches)
+	assert.NotNil(t, sheet.Batch)
+	assert.Equal(t, batch, sheet.Batch)
 }
 
 func TestCreateSheet_WithoutRowsAndBatches(t *testing.T) {
 	sheet := s.CreateSheet(1, "EmptySheet", nil, nil)
 
 	assert.Nil(t, sheet.Rows)
-	assert.Nil(t, sheet.Batches)
+	assert.Nil(t, sheet.Batch)
 }
 
 func TestWrapWorksheet(t *testing.T) {

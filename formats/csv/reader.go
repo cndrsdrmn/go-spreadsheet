@@ -33,7 +33,7 @@ func (r *Reader) BatchStream(file *os.File) (<-chan s.Worksheet, error) {
 			rowEnd := rowIndex - 1
 
 			batch := s.CreateBatch(rowStart, rowEnd, rows)
-			sheet := s.CreateSheet(0, "Sheet 1", nil, []s.Batch{batch})
+			sheet := s.CreateSheet(0, "Sheet 1", nil, &batch)
 
 			out <- s.WrapWorksheet(sheet)
 
