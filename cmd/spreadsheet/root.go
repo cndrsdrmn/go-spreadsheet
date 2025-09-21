@@ -8,12 +8,15 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var version = "0.1.0"
+
 var rootCmd = &cobra.Command{
 	Use:           "spreadsheet",
 	Short:         "Spreadsheet CLI for reading/writing",
 	Long:          `A fast CLI tool built in Go for streaming rows in JSON format.`,
 	SilenceUsage:  true,
 	SilenceErrors: true,
+	Version:       version,
 }
 
 func Execute() exitcode.Code {
